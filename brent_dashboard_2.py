@@ -38,7 +38,7 @@ def set_legenda():
     plt.legend(title='Legenda', loc='upper left', handles=legend_handles)
 
 # Carregar os dados
-file_path = r'C:\Users\bruno.siqueira_ifood\Desktop\Bruno Siqueira\Pos FIAP\tech challende 4\base_brent_ipea.csv'
+file_path = r'base_brent_ipea.csv'
 df = pd.read_csv(file_path, delimiter=';')
 
 # Limpar e preparar os dados
