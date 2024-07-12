@@ -26,7 +26,7 @@ def output_layout():
     with st.sidebar:
         st.subheader("Alunos do Grupo")
         st.text("Bruno Siqueira | RM 351907")
-        st.text("Claudio Koji   | RM ??????")
+        st.text("Claudio Koji   | RM 352492")
         st.text("Matheus Lima   | RM ??????")
         st.text("Luana          | RM ??????")
         st.text("Nelson         | RM ??????")
