@@ -29,7 +29,7 @@ def output_layout():
         st.text("Claudio Koji   | RM 352492")
         st.text("Matheus Lima   | RM ??????")
         st.text("Luana          | RM ??????")
-        st.text("Nelson         | RM ??????")
+        st.text("Nelson Walcow  | RM 352984")
 
         st.divider()
 
