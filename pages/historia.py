@@ -9,7 +9,7 @@ import seaborn as sns
 import plotly.graph_objects as go
 
 def plot_grafico_evolucao_preco_petroleo():
-    file_path = r'dados\base_brent_ipea.csv'
+    file_path = r'dados/base_brent_ipea.csv'
     
     df_oil = pd.read_csv(file_path, delimiter=';')
     df_oil.columns = ['Date', 'Brent_Price', 'Unnamed']
