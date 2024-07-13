@@ -26,7 +26,7 @@ st.markdown(
 
 st.subheader(":blue[Objetivo]", divider="blue")
 st.markdown(
-    """
+
      Origens e Importância
 •	Descoberta e Nomenclatura: O petróleo Brent é extraído do Mar do Norte e recebeu o nome do campo petrolífero Brent, operado pela Shell.
 •	Referência Global: Ele é amplamente utilizado como referência para a precificação de outros tipos de petróleo, especialmente na Europa, África e Oriente Médio.
@@ -71,7 +71,7 @@ Perspectivas para o Futuro
 Conclusão
 A análise histórica do petróleo Brent revela uma forte influência de fatores geopolíticos, econômicos e tecnológicos em seus preços. Para prever o futuro, é essencial considerar uma combinação desses fatores, juntamente com mudanças nas políticas de energia e avanços tecnológicos. Embora seja impossível prever com precisão exata, a compreensão desses elementos pode ajudar a fazer previsões mais informadas.
 
-"""
+
 )
 
 st.subheader(":blue[Metodologia]", divider="blue")
