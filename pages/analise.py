@@ -58,12 +58,12 @@ if inspected_data is not None:
         # Carregar dados sem cabeçalho
         data = pd.read_csv(file_path, delimiter=';', skiprows=1, names=['Date', 'Price'])
 
+        # Remover espaços extras
+        data['Date'] = data['Date'].astype(str).str.strip()
+        data['Price'] = data['Price'].astype(str).str.strip()
+
         # Substituir vírgulas por pontos nos valores
         data['Price'] = data['Price'].str.replace(',', '.').astype(float)
-
-        # Remover espaços extras
-        data['Date'] = data['Date'].str.strip()
-        data['Price'] = data['Price'].astype(str).str.strip()
 
         # Converter a coluna 'Date' para o formato datetime
         data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y', errors='coerce')
