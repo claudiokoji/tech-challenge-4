@@ -20,11 +20,14 @@ with st.container():
     )
 
 
+
+
+
+
 # Função para carregar os dados
 @st.cache
 def load_data(file_path):
     if not os.path.exists(file_path):
-        st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
         return None
     data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
     data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
@@ -75,7 +78,7 @@ if data is not None:
     previsões futuras e tomadas de decisão informadas.
     """)
 else:
-    st.error("Não foi possível carregar os dados.")
+    st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
 
 
 
