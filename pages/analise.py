@@ -41,6 +41,9 @@ def load_data(file_path):
 # Nome do arquivo
 file_path = 'dados/brent_preco.csv'
 
+# Imprimir o caminho absoluto do arquivo para depuração
+st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
+
 # Carregar dados
 data = load_data(file_path)
 
