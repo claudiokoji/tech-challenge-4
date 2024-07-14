@@ -27,14 +27,27 @@ st.markdown(
 st.subheader(":blue[Objetivo]", divider="blue")
 st.markdown(
     """
-     ????????.
+O objetivo desta análise é entender os fatores históricos que influenciam os preços do petróleo Brent e utilizar esse conhecimento para fazer previsões sobre suas futuras variações de preço. Isso pode ser útil para investidores, economistas, formuladores de políticas e outros stakeholders que desejam:
+
+1.  Tomar Decisões Informadas: Compreender os padrões e os fatores que influenciam o preço do petróleo Brent pode ajudar a tomar decisões de investimento mais bem fundamentadas. \n
+
+2.  Mitigar Riscos: Empresas e governos podem usar previsões de preços para mitigar riscos associados à volatilidade dos preços do petróleo, como flutuações nos custos de produção e transporte. \n
+
+3.  Planejamento e Estratégia: Planejar estratégias de longo prazo que considerem possíveis cenários futuros, como a transição para fontes de energia renovável ou mudanças nas políticas internacionais de energia. \n
+
+4.  Aprimorar Políticas Energéticas: Governos e órgãos reguladores podem usar essas análises para desenvolver políticas energéticas mais eficazes e adaptativas, que levem em conta as tendências globais e as futuras necessidades energéticas. \n
+
+5.  Gerar Insights Econômicos: Entender a relação entre os preços do petróleo e a economia global pode fornecer insights valiosos sobre o crescimento econômico, inflação, e outros indicadores macroeconômicos. \n
+
+Portanto, o objetivo é fornecer uma base sólida de conhecimento histórico e uma abordagem metodológica para prever futuros movimentos de preços, auxiliando na tomada de decisões estratégicas em diversos contextos. \n
+     
 """
 )
 
 st.subheader(":blue[Metodologia]", divider="blue")
 st.markdown(
     """
-    •	Análise Técnica: Uso de padrões históricos de preços e indicadores técnicos para prever movimentos futuros.\n
+Análise Técnica: Uso de padrões históricos de preços e indicadores técnicos para prever movimentos futuros.\n
     •	Modelagem Econômica: Modelos econométricos que consideram variáveis macroeconômicas e setoriais.\n
     •  	Simulações e Cenários: Criação de cenários baseados em diferentes suposições sobre variáveis-chave.\n
 Perspectivas para o Futuro \n
