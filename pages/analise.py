@@ -28,7 +28,7 @@ with st.container():
 
 
 # Função para carregar os dados sem parse_dates para inspeção
-@st.cache
+@st.cache_data
 def inspect_data(file_path):
     try:
         data = pd.read_csv(file_path)
@@ -38,7 +38,7 @@ def inspect_data(file_path):
         return None
 
 # Nome do arquivo
-file_path = 'dados/base_brent_ipea.csv'
+file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
@@ -56,10 +56,12 @@ if inspected_data is not None:
     st.write(inspected_data.columns)
 
     # Ajuste o nome da coluna conforme necessário após inspeção
-    @st.cache
+    @st.cache_data
     def load_data(file_path):
-        data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
+        data = pd.read_csv(file_path)
+        # Ajuste o nome das colunas aqui conforme necessário
         data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
+        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
         data.set_index('Date', inplace=True)
         return data
 
