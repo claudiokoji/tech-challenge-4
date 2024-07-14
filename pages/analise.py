@@ -51,7 +51,7 @@ if inspected_data is not None:
     st.subheader('Inspeção Inicial dos Dados')
     st.write(inspected_data.head())
 
-    # Verifique as colunas do dataframe inspecionado
+    # Verificar as colunas do dataframe inspecionado
     st.write("Colunas disponíveis no arquivo CSV:")
     st.write(inspected_data.columns)
 
