@@ -26,21 +26,6 @@ with st.container():
 
 
 
-
-file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
-
-try:
-    data = pd.read_csv(file_path)
-    print("Colunas disponíveis no arquivo CSV:")
-    print(data.columns)
-except Exception as e:
-    print(f"Erro ao carregar o arquivo: {e}")
-
-
-
-
-
-
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
