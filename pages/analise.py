@@ -24,6 +24,11 @@ with st.container():
 
 
 
+import pandas as pd
+import streamlit as st
+from io import StringIO
+import os
+
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
@@ -61,8 +66,12 @@ if inspected_data is not None:
         # Substituir vírgulas por pontos nos valores
         data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
 
+        # Remover espaços extras
+        data['Date'] = data['Date'].str.strip()
+        data['Price'] = data['Price'].astype(str).str.strip()
+
         # Converter a coluna 'Date' para o formato datetime
-        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+        data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y', errors='coerce')
 
         # Definir a coluna 'Date' como índice
         data.set_index('Date', inplace=True)
@@ -93,7 +102,7 @@ if inspected_data is not None:
 
         # Histograma da distribuição dos preços
         st.subheader('Distribuição dos Preços')
-        st.hist_chart(data['Price'])
+        st.bar_chart(data['Price'])
 
         # Análise de médias móveis
         st.subheader('Médias Móveis')
@@ -136,7 +145,7 @@ data = data.replace(',', '.')
 df = pd.read_csv(StringIO(data), delimiter=';', header=None, names=['Date', 'Price'])
 
 # Converter a coluna 'Date' para o formato datetime
-df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
+df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
 
 # Converter a coluna 'Price' para o tipo numérico (float)
 df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
