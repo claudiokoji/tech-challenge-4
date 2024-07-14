@@ -82,9 +82,7 @@ if inspected_data is not None:
 
         # Histograma da distribuição dos preços
         st.subheader('Distribuição dos Preços')
-        fig, ax = plt.subplots()
-        ax.hist(data['Price'], bins=50, color='blue', edgecolor='black')
-        st.pyplot(fig)
+        st.hist_chart(data['Price'])
 
         # Análise de médias móveis
         st.subheader('Médias Móveis')
