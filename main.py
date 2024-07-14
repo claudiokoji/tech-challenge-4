@@ -22,31 +22,29 @@ st.markdown(
     """
 Evolução do Preço do Petróleo: Uma Jornada pela Economia Global
 
-        Desde sua extração nas profundezas do Mar do Norte, o petróleo Brent não é apenas uma commodity, mas um indicador vital para a economia mundial. Como referência internacional para os preços do petróleo bruto, o Brent estabelece padrões nas transações globais, influenciando desde o custo do transporte até o preço dos alimentos.
-
-        A trajetória dos preços do petróleo Brent é turbulenta, refletindo a interseção complexa de fatores econômicos e geopolíticos. Ao longo das décadas, eventos como a Guerra do Golfo e os ataques terroristas de 2001 causaram flutuações abruptas, enquanto crises financeiras globais e conflitos regionais como a Primavera Árabe moldaram tendências duradouras.
-
-        Organizações como a Energy Information Administration (EIA) dos EUA desempenham um papel crucial ao fornecer dados precisos que orientam decisões econômicas e políticas em todo o mundo. A influência da OPEP na produção também é determinante, impactando diretamente os preços globais do Brent.
+Desde sua extração nas profundezas do Mar do Norte, o petróleo Brent não é apenas uma commodity, mas um indicador vital para a economia mundial. Como referência internacional para os preços do petróleo bruto, o Brent estabelece padrões nas transações globais, influenciando desde o custo do transporte até o preço dos alimentos.
+A trajetória dos preços do petróleo Brent é turbulenta, refletindo a interseção complexa de fatores econômicos e geopolíticos. Ao longo das décadas, eventos como a Guerra do Golfo e os ataques terroristas de 2001 causaram flutuações abruptas, enquanto crises financeiras globais e conflitos regionais como a Primavera Árabe moldaram tendências duradouras.
+Organizações como a Energy Information Administration (EIA) dos EUA desempenham um papel crucial ao fornecer dados precisos que orientam decisões econômicas e políticas em todo o mundo. A influência da OPEP na produção também é determinante, impactando diretamente os preços globais do Brent.
 
 O Instituto de Pesquisa Econômica Aplicada (IPEA) do Brasil contribui com análises fundamentais para entendermos o impacto desses eventos na economia nacional. Suas pesquisas fornecem insights valiosos sobre como flutuações nos preços do petróleo afetam variados setores, desde o mercado de trabalho até políticas ambientais.
 
-        À medida que nos adaptamos às mudanças globais, tecnologias como o TensorFlow e o Keras tornam possível prever essas flutuações com maior precisão. Ferramentas como o Prophet permitem modelar cenários futuros com base em dados históricos, ajudando a mitigar os impactos econômicos adversos.
+À medida que nos adaptamos às mudanças globais, tecnologias como o TensorFlow e o Keras tornam possível prever essas flutuações com maior precisão. Ferramentas como o Prophet permitem modelar cenários futuros com base em dados históricos, ajudando a mitigar os impactos econômicos adversos.
+Em resumo, a evolução do preço do petróleo Brent não é apenas um registro econômico, mas um reflexo dinâmico das interações complexas entre política, economia e tecnologia em escala global. Entender seu curso é fundamental para antecipar desafios e oportunidades em um mundo cada vez mais interconectado e interdependente.
 
-        Em resumo, a evolução do preço do petróleo Brent não é apenas um registro econômico, mas um reflexo dinâmico das interações complexas entre política, economia e tecnologia em escala global. Entender seu curso é fundamental para antecipar desafios e oportunidades em um mundo cada vez mais interconectado e interdependente.
 A História do Preço do Petróleo 
 
-        Ao longo das décadas, diversos eventos significativos, como guerras e revoluções, moldaram o contexto geopolítico global e influenciaram profundamente os preços do petróleo, uma commodity vital para a economia mundial. 
+Ao longo das décadas, diversos eventos significativos, como guerras e revoluções, moldaram o contexto geopolítico global e influenciaram profundamente os preços do petróleo, uma commodity vital para a economia mundial. 
 
-            Abaixo estão 12 desses eventos cruciais, apresentados cronologicamente: 
+Abaixo estão 12 desses eventos cruciais, apresentados cronologicamente: 
             
-                Guerra do Golfo (1990-1991) 
-                Atentados terroristas nos EUA (2001)  
-                Guerra do Iraque (2003-2011)  
-                Crise financeira global (2007-2008)  
-                Primavera Árabe (2010-2012) Guerra Civil na Líbia (2011) 
-                Conflito na Síria (2011~) OPEP mantém ritmo de produção (2014)  
-                Grande produção e baixa demanda (2015)  
-                Pandemia de COVID-19 (2020-2023) Recuperação econômica pós-covid (2021~) Conflito Rússia-Ucrânia (2022~)
+    Guerra do Golfo (1990-1991) 
+    Atentados terroristas nos EUA (2001)  
+    Guerra do Iraque (2003-2011)  
+    Crise financeira global (2007-2008)  
+    Primavera Árabe (2010-2012) Guerra Civil na Líbia (2011) 
+    Conflito na Síria (2011~) OPEP mantém ritmo de produção (2014)  
+    Grande produção e baixa demanda (2015)  
+    Pandemia de COVID-19 (2020-2023) Recuperação econômica pós-covid (2021~) Conflito Rússia-Ucrânia (2022~)
     """
 )
 
@@ -74,11 +72,11 @@ st.subheader(":blue[Metodologia]", divider="blue")
 st.markdown(
     """
 Análise Técnica: Uso de padrões históricos de preços e indicadores técnicos para prever movimentos futuros.\n
-    Modelagem Econômica: Modelos econométricos que consideram variáveis macroeconômicas e setoriais.\n
-    Simulações e Cenários: Criação de cenários baseados em diferentes suposições sobre variáveis-chave.\n
+Modelagem Econômica: Modelos econométricos que consideram variáveis macroeconômicas e setoriais.\n
+Simulações e Cenários: Criação de cenários baseados em diferentes suposições sobre variáveis-chave.\n
 Perspectivas para o Futuro \n
-    Curto Prazo: Pode haver volatilidade devido a incertezas geopolíticas e flutuações na demanda pós-pandemia. \n
-    Médio a Longo Prazo: A transição energética global para fontes renováveis pode resultar em uma demanda estruturalmente menor por petróleo, pressionando os preços para baixo, embora a volatilidade permaneça devido a fatores geopolíticos e econômicos. \n
+Curto Prazo: Pode haver volatilidade devido a incertezas geopolíticas e flutuações na demanda pós-pandemia. \n
+Médio a Longo Prazo: A transição energética global para fontes renováveis pode resultar em uma demanda estruturalmente menor por petróleo, pressionando os preços para baixo, embora a volatilidade permaneça devido a fatores geopolíticos e econômicos. \n
 
 """
 )
