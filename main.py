@@ -34,12 +34,12 @@ st.markdown(
 st.subheader(":blue[Metodologia]", divider="blue")
 st.markdown(
     """
-    •	Análise Técnica: Uso de padrões históricos de preços e indicadores técnicos para prever movimentos futuros.
-    •	Modelagem Econômica: Modelos econométricos que consideram variáveis macroeconômicas e setoriais.
-    •  	Simulações e Cenários: Criação de cenários baseados em diferentes suposições sobre variáveis-chave.
-Perspectivas para o Futuro
-    •	Curto Prazo: Pode haver volatilidade devido a incertezas geopolíticas e flutuações na demanda pós-pandemia.
-    •	Médio a Longo Prazo: A transição energética global para fontes renováveis pode resultar em uma demanda estruturalmente menor por petróleo, pressionando os preços para baixo, embora a volatilidade permaneça devido a fatores geopolíticos e econômicos.
+    •	Análise Técnica: Uso de padrões históricos de preços e indicadores técnicos para prever movimentos futuros.\n
+    •	Modelagem Econômica: Modelos econométricos que consideram variáveis macroeconômicas e setoriais.\n
+    •  	Simulações e Cenários: Criação de cenários baseados em diferentes suposições sobre variáveis-chave.\n
+Perspectivas para o Futuro \n
+    •	Curto Prazo: Pode haver volatilidade devido a incertezas geopolíticas e flutuações na demanda pós-pandemia. \n
+    •	Médio a Longo Prazo: A transição energética global para fontes renováveis pode resultar em uma demanda estruturalmente menor por petróleo, pressionando os preços para baixo, embora a volatilidade permaneça devido a fatores geopolíticos e econômicos. \n
 
 """
 )
