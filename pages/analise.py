@@ -27,28 +27,28 @@ with st.container():
 
 
 
-# Função para carregar os dados
-@st.cache
-def load_data(file_path):
-    if not os.path.exists(file_path):
-        st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
-        return None
-    data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
-    data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
-    data.set_index('Date', inplace=True)
-    return data
-
 # Nome do arquivo
-file_path = 'dados/brent_preco.csv'
+file_path = 'dados/base_brent_ipea.csv'
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
 st.write(f"Diretório atual: {os.getcwd()}")
 
-# Verificar se o arquivo existe
-if not os.path.exists(file_path):
-    st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
-else:
+# Inspecionar dados
+inspected_data = inspect_data(file_path)
+
+if inspected_data is not None:
+    st.subheader('Inspeção Inicial dos Dados')
+    st.write(inspected_data.head())
+
+    # Agora, carregue os dados corretamente após verificar as colunas
+    @st.cache
+    def load_data(file_path):
+        data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
+        data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
+        data.set_index('Date', inplace=True)
+        return data
+
     # Carregar dados
     data = load_data(file_path)
 
@@ -90,7 +90,9 @@ else:
         previsões futuras e tomadas de decisão informadas.
         """)
     else:
-        st.error("Não foi possível carregar os dados.")
+        st.error("Não foi possível carregar os dados corretamente após a inspeção.")
+else:
+    st.error("Não foi possível inspecionar os dados.")
 
 
 
