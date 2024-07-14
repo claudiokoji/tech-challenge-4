@@ -23,7 +23,7 @@ with st.container():
 # Carregar dados históricos (substitua pelo seu próprio conjunto de dados)
 @st.cache
 def load_data():
-    url = 'http://www.ipeadata.gov.br/ExibeSerie.aspx?module=m&serid=1650971490&oper=view'
+    url = 'base_brent_ipea.csv'
     data = pd.read_csv(url, parse_dates=['Date'])
     data.set_index('Date', inplace=True)
     return data
