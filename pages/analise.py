@@ -36,7 +36,10 @@ try:
 except Exception as e:
     print(f"Erro ao carregar o arquivo: {e}")
 
-
+if 'Date' in data.columns:
+    print("Coluna 'Date' encontrada no DataFrame.")
+else:
+    print("A coluna 'Date' não está presente no DataFrame.")
 
 
 
