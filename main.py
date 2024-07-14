@@ -38,6 +38,7 @@ A História do Preço do Petróleo
         Ao longo das décadas, diversos eventos significativos, como guerras e revoluções, moldaram o contexto geopolítico global e influenciaram profundamente os preços do petróleo, uma commodity vital para a economia mundial. 
 
             Abaixo estão 12 desses eventos cruciais, apresentados cronologicamente: 
+            
                 Guerra do Golfo (1990-1991) 
                 Atentados terroristas nos EUA (2001)  
                 Guerra do Iraque (2003-2011)  
