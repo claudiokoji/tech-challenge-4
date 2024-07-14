@@ -61,6 +61,14 @@ if inspected_data is not None:
         data = pd.read_csv(file_path)
         # Ajuste o nome das colunas aqui conforme necessário
         data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
+
+        # Verificar se a coluna 'Date' está presente após a renomeação
+        if 'Date' not in data.columns:
+            st.error("A coluna 'Date' não está presente no DataFrame após a renomeação.")
+            st.write("Colunas disponíveis após renomeação:")
+            st.write(data.columns)
+            return None
+
         data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
         data.set_index('Date', inplace=True)
         return data
