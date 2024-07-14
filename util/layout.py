@@ -27,8 +27,8 @@ def output_layout():
         st.subheader("Alunos do Grupo")
         st.text("Bruno Siqueira | RM 351907")
         st.text("Claudio Koji   | RM 352492")
-        st.text("Matheus Lima   | RM ??????")
-        st.text("Luana          | RM ??????")
+        st.text("Matheus Lima   | RM 430056")
+        st.text("Luana Luz      | RM 353101")
         st.text("Nelson Walcow  | RM 352984")
 
         st.divider()
