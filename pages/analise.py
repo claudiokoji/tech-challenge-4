@@ -24,11 +24,6 @@ with st.container():
 
 
 
-import pandas as pd
-import streamlit as st
-from io import StringIO
-import os
-
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
@@ -64,7 +59,7 @@ if inspected_data is not None:
         data = pd.read_csv(file_path, delimiter=';', skiprows=1, names=['Date', 'Price'])
 
         # Substituir vírgulas por pontos nos valores
-        data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
+        data['Price'] = data['Price'].str.replace(',', '.').astype(float)
 
         # Remover espaços extras
         data['Date'] = data['Date'].str.strip()
