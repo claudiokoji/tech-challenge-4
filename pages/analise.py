@@ -27,6 +27,16 @@ with st.container():
 
 
 
+# Função para carregar os dados sem parse_dates para inspeção
+@st.cache
+def inspect_data(file_path):
+    try:
+        data = pd.read_csv(file_path)
+        return data
+    except Exception as e:
+        st.error(f"Erro ao carregar o arquivo: {e}")
+        return None
+
 # Nome do arquivo
 file_path = 'dados/base_brent_ipea.csv'
 
@@ -41,7 +51,11 @@ if inspected_data is not None:
     st.subheader('Inspeção Inicial dos Dados')
     st.write(inspected_data.head())
 
-    # Agora, carregue os dados corretamente após verificar as colunas
+    # Verifique as colunas do dataframe inspecionado
+    st.write("Colunas disponíveis no arquivo CSV:")
+    st.write(inspected_data.columns)
+
+    # Ajuste o nome da coluna conforme necessário após inspeção
     @st.cache
     def load_data(file_path):
         data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
