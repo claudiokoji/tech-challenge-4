@@ -24,13 +24,11 @@ with st.container():
 
 
 
-
-
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
     try:
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_path, delimiter=';', header=None)
         return data
     except Exception as e:
         st.error(f"Erro ao carregar o arquivo: {e}")
@@ -52,29 +50,32 @@ if inspected_data is not None:
 
     # Verificar as colunas do dataframe inspecionado
     st.write("Colunas disponíveis no arquivo CSV:")
-    st.write(inspected_data.columns.tolist())
+    st.write(inspected_data.iloc[0])
 
     # Função para carregar e normalizar os dados
     @st.cache_data
     def load_and_normalize_data(file_path):
-        data = pd.read_csv(file_path)
+        # Carregar dados sem cabeçalho
+        data = pd.read_csv(file_path, delimiter=';', skiprows=1, names=['Date', 'Price'])
 
-        # Verificar se as colunas 'DATA' e 'VALOR' existem
-        if 'DATA' in data.columns and 'VALOR' in data.columns:
-            data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
-        else:
-            raise KeyError("Colunas 'DATA' e 'VALOR' não encontradas no arquivo CSV.")
-
-        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+        # Substituir vírgulas por pontos nos valores
         data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
+
+        # Converter a coluna 'Date' para o formato datetime
+        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+
+        # Definir a coluna 'Date' como índice
         data.set_index('Date', inplace=True)
-        data['Price'].fillna(data['Price'].mean(), inplace=True)  # Preenchendo valores ausentes com a média
+
+        # Preencher valores ausentes (NaN) na coluna 'Price'
+        data['Price'].fillna(data['Price'].mean(), inplace=True)
+
         return data
 
     # Carregar e normalizar dados
     try:
         data = load_and_normalize_data(file_path)
-    except KeyError as e:
+    except Exception as e:
         st.error(f"Erro ao processar os dados: {e}")
         data = None
 
@@ -144,7 +145,6 @@ df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
 df['Price'].fillna(df['Price'].mean(), inplace=True)
 
 print(df)
-
 
     
 with st.container():
