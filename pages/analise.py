@@ -15,14 +15,9 @@ output_layout()
 
 with st.container():
     st.header(f":orange[{TITULO_ANALISE_EXPLORATORIA}]")
-
-    st.markdown(
-        """
-        Texto sobre Analises dos exploratoria.
-    """
-    )
-
-
+    st.markdown("""
+        Texto sobre Análises Exploratórias.
+    """)
 
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
@@ -150,41 +145,26 @@ df['Price'].fillna(df['Price'].mean(), inplace=True)
 
 print(df)
 
-    
 with st.container():
     st.subheader(":blue[Análise Descritiva]", divider="blue")
+    st.markdown("""
+        Texto sobre análise descritiva.
+    """)
 
-    st.markdown(
-        """
-        Texto sobre analise.
-    """
-    )
-    
 with st.container():
-    st.subheader(":blue[Grafico 1]", divider="blue")
+    st.subheader(":blue[Gráfico 1]", divider="blue")
+    st.markdown("""
+        Texto sobre gráfico 1.
+    """)
 
-    st.markdown(
-        """
-        Texto sobre grafico 1
-    """
-    )
-    
 with st.container():
-    st.subheader(":blue[Grafico 2]", divider="blue")
+    st.subheader(":blue[Gráfico 2]", divider="blue")
+    st.markdown("""
+        Texto sobre gráfico 2.
+    """)
 
-    st.markdown(
-        """
-        Texto sobre grafico 2
-    """
-    )
-    
 with st.container():
-    st.subheader(":blue[Grafico 3]", divider="blue")
-
-    st.markdown(
-        """
-        Texto sobre grafico 3
-    """
-    )
-
-
+    st.subheader(":blue[Gráfico 3]", divider="blue")
+    st.markdown("""
+        Texto sobre gráfico 3.
+    """)
