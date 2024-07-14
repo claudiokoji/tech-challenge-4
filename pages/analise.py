@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from util.constantes import TITULO_ANALISE_EXPLORATORIA, TITULO_PRINCIPAL
 from util.layout import output_layout, format_number
+import os
+import numpy as np
+
 
 st.set_page_config(
     page_title=f"{TITULO_ANALISE_EXPLORATORIA} | {TITULO_PRINCIPAL}",
@@ -28,6 +31,7 @@ with st.container():
 @st.cache
 def load_data(file_path):
     if not os.path.exists(file_path):
+        st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
         return None
     data = pd.read_csv(file_path, parse_dates=['DATA'], dayfirst=True)
     data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
@@ -78,7 +82,7 @@ if data is not None:
     previsões futuras e tomadas de decisão informadas.
     """)
 else:
-    st.error(f"O arquivo {file_path} não foi encontrado. Verifique o nome e o caminho do arquivo.")
+    st.error("Não foi possível carregar os dados.")
 
 
 
