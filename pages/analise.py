@@ -143,7 +143,7 @@ df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
 # Preencher valores ausentes (NaN) na coluna 'Price'
 df['Price'].fillna(df['Price'].mean(), inplace=True)
 
-print(df)
+st.write(df)
 
 with st.container():
     st.subheader(":blue[Análise Descritiva]", divider="blue")
