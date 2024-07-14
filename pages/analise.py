@@ -5,7 +5,7 @@ from util.constantes import TITULO_ANALISE_EXPLORATORIA, TITULO_PRINCIPAL
 from util.layout import output_layout, format_number
 import os
 import numpy as np
-
+from io import StringIO
 
 st.set_page_config(
     page_title=f"{TITULO_ANALISE_EXPLORATORIA} | {TITULO_PRINCIPAL}",
@@ -54,18 +54,20 @@ if inspected_data is not None:
     st.write("Colunas disponíveis no arquivo CSV:")
     st.write(inspected_data.columns)
 
-    # Ajuste o nome da coluna conforme necessário após inspeção
+    # Função para carregar e normalizar os dados
     @st.cache_data
-    def load_data(file_path):
+    def load_and_normalize_data(file_path):
         data = pd.read_csv(file_path)
         # Ajuste o nome das colunas aqui conforme necessário
         data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
         data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+        data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
         data.set_index('Date', inplace=True)
+        data['Price'].fillna(data['Price'].mean(), inplace=True)  # Preenchendo valores ausentes com a média
         return data
 
-    # Carregar dados
-    data = load_data(file_path)
+    # Carregar e normalizar dados
+    data = load_and_normalize_data(file_path)
 
     if data is not None:
         # Título da aplicação
@@ -106,6 +108,33 @@ if inspected_data is not None:
         st.error("Não foi possível carregar os dados corretamente após a inspeção.")
 else:
     st.error("Não foi possível inspecionar os dados.")
+
+# Teste de normalização dos dados simulados
+data = """20/05/1987;18,63;
+21/05/1987;18,45;
+22/05/1987;18,55;
+23/05/1987;
+24/05/1987;
+25/05/1987;18,6;
+26/05/1987;18,63;
+27/05/1987;18,6;
+28/05/1987;18,6;
+29/05/1987;18,58;"""
+
+# Substituir vírgulas por pontos e carregar os dados em um DataFrame
+data = data.replace(',', '.')
+df = pd.read_csv(StringIO(data), delimiter=';', header=None, names=['Date', 'Price'])
+
+# Converter a coluna 'Date' para o formato datetime
+df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
+
+# Converter a coluna 'Price' para o tipo numérico (float)
+df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
+
+# Preencher valores ausentes (NaN) na coluna 'Price'
+df['Price'].fillna(df['Price'].mean(), inplace=True)
+
+print(df)
 
 
     
