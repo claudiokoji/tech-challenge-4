@@ -20,11 +20,12 @@ with st.container():
     )
 
 
-# Carregar dados históricos (substitua pelo seu próprio conjunto de dados)
+# Função para carregar os dados
 @st.cache
 def load_data():
-    url = 'base_brent_ipea.csv'
-    data = pd.read_csv(url, parse_dates=['Date'])
+    # Atualize o nome do arquivo CSV com o nome correto
+    data = pd.read_csv('brent_preco.csv', parse_dates=['DATA'], dayfirst=True)
+    data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
     data.set_index('Date', inplace=True)
     return data
 
@@ -67,7 +68,6 @@ Esta análise exploratória mostra como o preço do petróleo Brent variou ao lo
 médias móveis e volatilidade. Essas visualizações ajudam a entender os padrões históricos e podem ser úteis para 
 previsões futuras e tomadas de decisão informadas.
 """)
-
 
 
 
