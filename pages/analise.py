@@ -39,7 +39,7 @@ def load_data(file_path):
     return data
 
 # Nome do arquivo
-file_path = 'dados/brent_preco.csv'
+file_path = 'dados/base_brent_ipea.csv'
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
