@@ -39,7 +39,7 @@ def load_data(file_path):
     return data
 
 # Nome do arquivo
-file_path = 'brent_preco.csv'
+file_path = 'dados/brent_preco.csv'
 
 # Carregar dados
 data = load_data(file_path)
