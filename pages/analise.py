@@ -25,17 +25,6 @@ with st.container():
 
 
 
-
-
-file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
-
-# Tentar carregar o arquivo e exibir as primeiras linhas para verificar a estrutura
-try:
-    data = pd.read_csv(file_path)
-    print(data.head())
-except Exception as e:
-    print(f"Erro ao carregar o arquivo: {e}")
-
 if 'Date' in data.columns:
     print("Coluna 'Date' encontrada no DataFrame.")
 else:
