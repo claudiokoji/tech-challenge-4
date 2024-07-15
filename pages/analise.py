@@ -32,6 +32,7 @@ def inspect_data(file_path):
 # Nome do arquivo
 file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
 
+
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
 st.write(f"Diretório atual: {os.getcwd()}")
