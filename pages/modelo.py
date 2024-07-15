@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 # Definir o caminho do arquivo CSV
-file_path = '/content/base_brent_ipea.csv'
+file_path = '/dados/base_brent_ipea.csv'
 
 # Carregar os dados do arquivo CSV
 data = pd.read_csv(file_path, delimiter=';')
