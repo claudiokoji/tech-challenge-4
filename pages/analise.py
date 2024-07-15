@@ -32,7 +32,7 @@ def inspect_data(file_path):
 
 # File path and current directory
 current_directory = os.getcwd()
-file_path = os.path.join(current_directory, 'dados/an_exploration.csv')
+file_path = os.path.join(current_directory, '/mount/src/tech-challenge-4/dados/an_exploration.csv')
 
 # Debugging file path and directory
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
