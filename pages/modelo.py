@@ -1,11 +1,21 @@
 import streamlit as st
-from util.constantes import TITULO_MODELO, TITULO_PRINCIPAL
-from util.layout import output_layout, format_number
+import subprocess
+import sys
+
+# Check if prophet is installed
+try:
+    from prophet import Prophet
+    from prophet.diagnostics import cross_validation, performance_metrics
+except ImportError:
+    st.warning("Prophet is not installed. Installing now...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "prophet"])
+    from prophet import Prophet
+    from prophet.diagnostics import cross_validation, performance_metrics
 
 import pandas as pd
-from prophet import Prophet
-from prophet.diagnostics import cross_validation, performance_metrics
 import matplotlib.pyplot as plt
+from util.constantes import TITULO_MODELO, TITULO_PRINCIPAL
+from util.layout import output_layout, format_number
 
 # Set up the Streamlit page
 st.set_page_config(
