@@ -6,4 +6,4 @@ st_pages
 seaborn
 plotly
 Prophet
-numpy
+numpy==1.21.4
