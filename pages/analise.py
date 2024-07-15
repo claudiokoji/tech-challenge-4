@@ -13,8 +13,9 @@ output_layout()
 with st.container():
     st.header(f":orange[{TITULO_ANALISE_EXPLORATORIA}]")
     st.markdown("""
-        Texto sobre Análises Exploratórias.
+        
     """)
+    
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
@@ -32,9 +33,7 @@ def inspect_data(file_path):
 # Verificação do caminho do arquivo
 current_directory = os.getcwd()
 file_path = os.path.join(current_directory, 'dados/base_brent_ipea.csv')
-# Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
-st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
-st.write(f"Diretório atual: {current_directory}")
+
 # Inspecionar dados
 inspected_data = inspect_data(file_path)
 if inspected_data is not None:
