@@ -68,6 +68,7 @@ Portanto, o objetivo é fornecer uma base sólida de conhecimento histórico e u
 """
 )
 
+
 st.subheader(":blue[Metodologia]", divider="blue")
 st.markdown(
     """
