@@ -6,4 +6,5 @@ st_pages
 seaborn
 plotly
 fbprophet
+numpy
 
