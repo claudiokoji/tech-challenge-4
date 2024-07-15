@@ -35,16 +35,23 @@ A História do Preço do Petróleo
 
 Ao longo das décadas, diversos eventos significativos, como guerras e revoluções, moldaram o contexto geopolítico global e influenciaram profundamente os preços do petróleo, uma commodity vital para a economia mundial. 
 
-Abaixo estão 12 desses eventos cruciais, apresentados cronologicamente: 
+Abaixo estão 15 desses eventos cruciais, apresentados cronologicamente: 
             
-    Guerra do Golfo (1990-1991) 
-    Atentados terroristas nos EUA (2001)  
-    Guerra do Iraque (2003-2011)  
-    Crise financeira global (2007-2008)  
-    Primavera Árabe (2010-2012) Guerra Civil na Líbia (2011) 
-    Conflito na Síria (2011~) OPEP mantém ritmo de produção (2014)  
-    Grande produção e baixa demanda (2015)  
-    Pandemia de COVID-19 (2020-2023) Recuperação econômica pós-covid (2021~) Conflito Rússia-Ucrânia (2022~)
+1.  Guerra do Golfo (1990-1991): A invasão do Kuwait pelo Iraque levou a um aumento nos preços devido às preocupações com o fornecimento.
+2.  Crise Financeira Asiática (1997-1998): A crise econômica na Ásia resultou em uma queda na demanda por petróleo, diminuindo os preços.
+3.  Ataques de 11 de setembro (2001): Os ataques terroristas nos EUA aumentaram a instabilidade geopolítica e afetaram temporariamente os preços.
+4.  Invasão do Iraque (2003): A invasão do Iraque elevou os preços devido às preocupações com a produção no Oriente Médio.
+5.  Furacão Katrina (2005): Danos à infraestrutura de produção nos EUA aumentaram os preços.
+6.  Crise Financeira Global (2008): A crise financeira levou a uma queda drástica na demanda por petróleo.
+7.  Primavera Árabe (2010-2011): Revoltas no Oriente Médio e Norte da África criaram incertezas sobre o fornecimento.
+8.  Guerra Civil na Líbia (2011): O conflito na Líbia interrompeu a produção, elevando os preços.
+9.  Acordo Nuclear com o Irã (2015): O acordo levou à expectativa de aumento da oferta, pressionando os preços para baixo.
+10. Queda dos Preços do Petróleo (2014-2016): Aumento da produção de xisto nos EUA e excesso de oferta.
+11. Ataque às Instalações da Aramco (2019): Ataques com drones na Arábia Saudita interromperam a produção.
+12. Pandemia de COVID-19 (2020): A pandemia reduziu drasticamente a demanda por petróleo.
+13. Acordo de Corte de Produção da OPEP+ (2020): Acordo para cortar a produção e estabilizar os preços.
+14. Invasão da Ucrânia pela Rússia (2022): A invasão criou incertezas sobre o fornecimento de petróleo e gás da Rússia.
+15. Acordos de Redução de Emissões e Transição Energética (2021-presente): Políticas para reduzir as emissões de carbono impactam a demanda de longo prazo.
     """
 )
 
