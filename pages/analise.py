@@ -51,7 +51,14 @@ if inspected_data is not None:
     @st.cache_data
     def load_and_normalize_data(file_path):
         data = pd.read_csv(file_path)
+        st.write("Colunas lidas do arquivo CSV:")
+        st.write(data.columns)  # Print column names for debugging
+
         # Ajuste o nome das colunas aqui conforme necessário
+        if 'DATA' not in data.columns or 'VALOR' not in data.columns:
+            st.error("As colunas esperadas 'DATA' e 'VALOR' não foram encontradas no arquivo CSV.")
+            return None
+
         data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
         data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
         data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
