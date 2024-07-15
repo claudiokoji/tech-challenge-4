@@ -58,7 +58,7 @@ def prever_brent():
     st.pyplot(fig1)
 
     # Plotar os dados reais e as previsões para o período completo
-    future = model.make_future_dataframe(periods=365)
+    future = model.make_future_dataframe(periods=60)
     forecast = model.predict(future)
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     ax2.plot(df_prophet['ds'], df_prophet['y'], label='Dados Reais', color='blue')
