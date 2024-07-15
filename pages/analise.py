@@ -30,7 +30,7 @@ def inspect_data(file_path):
 
 # Verificação do caminho do arquivo
 current_directory = os.getcwd()
-file_path = os.path.join(current_directory, 'dados/an_exploration.csv')
+file_path = os.path.join(current_directory, '/mount/src/tech-challenge-4/dados/an_exploration.csv')
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
