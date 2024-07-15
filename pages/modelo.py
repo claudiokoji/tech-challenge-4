@@ -1,19 +1,8 @@
 import streamlit as st
-import subprocess
-import sys
-
-# Check if prophet is installed
-try:
-    from prophet import Prophet
-    from prophet.diagnostics import cross_validation, performance_metrics
-except ImportError:
-    st.warning("Prophet is not installed. Installing now...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "prophet"])
-    from prophet import Prophet
-    from prophet.diagnostics import cross_validation, performance_metrics
-
 import pandas as pd
 import matplotlib.pyplot as plt
+from prophet import Prophet
+from prophet.diagnostics import cross_validation, performance_metrics
 from util.constantes import TITULO_MODELO, TITULO_PRINCIPAL
 from util.layout import output_layout, format_number
 
