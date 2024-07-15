@@ -5,4 +5,4 @@ matplotlib
 st_pages
 seaborn
 plotly
-Prophet
+Prophet==1.1.1
