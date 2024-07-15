@@ -56,11 +56,11 @@ if inspected_data is not None:
         st.write(data.columns)  # Print column names for debugging
 
         # Ajuste o nome das colunas aqui conforme necessário
-        if 'DATA' not in data.columns or 'VALOR' not in data.columns:
-            st.error("As colunas esperadas 'DATA' e 'VALOR' não foram encontradas no arquivo CSV.")
+        if 'Data' not in data.columns or 'Preço' not in data.columns:
+            st.error("As colunas esperadas 'Data' e 'Preço' não foram encontradas no arquivo CSV.")
             return None
 
-        data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
+        data.rename(columns={'Data': 'Date', 'Preço': 'Price'}, inplace=True)
         data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
         data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
         data.set_index('Date', inplace=True)
