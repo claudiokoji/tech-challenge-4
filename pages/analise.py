@@ -23,7 +23,7 @@ with st.container():
 @st.cache_data
 def inspect_data(file_path):
     try:
-        data = pd.read_csv(file_path, delimiter=';', header=None)
+        data = pd.read_csv(file_path)
         return data
     except Exception as e:
         st.error(f"Erro ao carregar o arquivo: {e}")
@@ -31,7 +31,6 @@ def inspect_data(file_path):
 
 # Nome do arquivo
 file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
-
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
@@ -46,38 +45,22 @@ if inspected_data is not None:
 
     # Verificar as colunas do dataframe inspecionado
     st.write("Colunas disponíveis no arquivo CSV:")
-    st.write(inspected_data.iloc[0])
+    st.write(inspected_data.columns)
 
     # Função para carregar e normalizar os dados
     @st.cache_data
     def load_and_normalize_data(file_path):
-        # Carregar dados sem cabeçalho
-        data = pd.read_csv(file_path, delimiter=';', skiprows=1, names=['Date', 'Price'])
-
-        # Remover espaços extras
-        data['Date'] = data['Date'].astype(str).str.strip()
-        data['Price'] = data['Price'].astype(str).str.strip()
-
-        # Substituir vírgulas por pontos nos valores
-        data['Price'] = data['Price'].str.replace(',', '.').astype(float)
-
-        # Converter a coluna 'Date' para o formato datetime
-        data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y', errors='coerce')
-
-        # Definir a coluna 'Date' como índice
+        data = pd.read_csv(file_path)
+        # Ajuste o nome das colunas aqui conforme necessário
+        data.rename(columns={'DATA': 'Date', 'VALOR': 'Price'}, inplace=True)
+        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+        data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
         data.set_index('Date', inplace=True)
-
-        # Preencher valores ausentes (NaN) na coluna 'Price'
-        data['Price'].fillna(data['Price'].mean(), inplace=True)
-
+        data['Price'].fillna(data['Price'].mean(), inplace=True)  # Preenchendo valores ausentes com a média
         return data
 
     # Carregar e normalizar dados
-    try:
-        data = load_and_normalize_data(file_path)
-    except Exception as e:
-        st.error(f"Erro ao processar os dados: {e}")
-        data = None
+    data = load_and_normalize_data(file_path)
 
     if data is not None:
         # Título da aplicação
@@ -93,7 +76,7 @@ if inspected_data is not None:
 
         # Histograma da distribuição dos preços
         st.subheader('Distribuição dos Preços')
-        st.bar_chart(data['Price'])
+        st.hist_chart(data['Price'])
 
         # Análise de médias móveis
         st.subheader('Médias Móveis')
@@ -136,7 +119,7 @@ data = data.replace(',', '.')
 df = pd.read_csv(StringIO(data), delimiter=';', header=None, names=['Date', 'Price'])
 
 # Converter a coluna 'Date' para o formato datetime
-df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
+df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
 
 # Converter a coluna 'Price' para o tipo numérico (float)
 df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
@@ -144,28 +127,4 @@ df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
 # Preencher valores ausentes (NaN) na coluna 'Price'
 df['Price'].fillna(df['Price'].mean(), inplace=True)
 
-st.write(df)
-
-with st.container():
-    st.subheader(":blue[Análise Descritiva]", divider="blue")
-    st.markdown("""
-        Texto sobre análise descritiva.
-    """)
-
-with st.container():
-    st.subheader(":blue[Gráfico 1]", divider="blue")
-    st.markdown("""
-        Texto sobre gráfico 1.
-    """)
-
-with st.container():
-    st.subheader(":blue[Gráfico 2]", divider="blue")
-    st.markdown("""
-        Texto sobre gráfico 2.
-    """)
-
-with st.container():
-    st.subheader(":blue[Gráfico 3]", divider="blue")
-    st.markdown("""
-        Texto sobre gráfico 3.
-    """)
+print(df)
