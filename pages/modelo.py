@@ -22,8 +22,7 @@ def prever_brent():
     data_csv.columns = ['Data', 'Preço', 'Unnamed']
     data = data_csv[['Data', 'Preço']]
     data['Data'] = pd.to_datetime(data['Data'], dayfirst=True)
-    data['Preço'] = data['Preço'].str.replace(',', '.').astype(f
-    )
+    data['Preço'] = data['Preço'].str.replace(',', '.').astype(float)
     data = data.dropna()  # Remover linhas com valores nulos
     data = data[data['Data'] >= '2020-01-01']  # Utilizar dados a partir de 2020
     df_prophet = data[['Data', 'Preço']].rename(columns={'Data': 'ds', 'Preço': 'y'})
