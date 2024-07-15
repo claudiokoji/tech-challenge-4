@@ -129,4 +129,6 @@ with st.container():
     12. **Pandemia de COVID-19 (2020)**: A pandemia reduziu drasticamente a demanda por petróleo.
     13. **Acordo de Corte de Produção da OPEP+ (2020)**: Acordo para cortar a produção e estabilizar os preços.
     14. **Invasão da Ucrânia pela Rússia (2022)**: A invasão criou incertezas sobre o fornecimento de petróleo e gás da Rússia.
-    15. **Acordos de Redução de Emissões e Transição Energética (2021-presente)**:
+    15. **Acordos de Redução de Emissões e Transição Energética (2021-presente)**: Políticas para reduzir as emissões de carbono impactam a demanda de longo prazo.
+    """
+    )
