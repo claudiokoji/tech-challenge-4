@@ -32,7 +32,7 @@ def inspect_data(file_path):
 
 # File path and current directory
 current_directory = os.getcwd()
-file_path = os.path.join(current_directory, '/mount/src/tech-challenge-4/dados/an_exploration.csv')
+file_path = os.path.join(current_directory, 'dados/an_exploration.csv')
 
 # Debugging file path and directory
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
@@ -119,7 +119,8 @@ else:
 
     # List directory contents for debugging
     try:
-        files = os.listdir(os.path.dirname(file_path))
-        st.write(f"Arquivos no diretório '{os.path.dirname(file_path)}': {files}")
+        directory_to_inspect = os.path.dirname(file_path)
+        files = os.listdir(directory_to_inspect)
+        st.write(f"Arquivos no diretório '{directory_to_inspect}': {files}")
     except Exception as e:
         st.error(f"Erro ao listar o diretório: {e}")
