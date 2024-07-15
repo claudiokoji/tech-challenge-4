@@ -20,8 +20,6 @@ st.subheader(
 )
 st.markdown(
     """
-Evolução do Preço do Petróleo: Uma Jornada pela Economia Global
-
 
 O petróleo Brent, extraído do Mar do Norte, é mais que uma commodity; é um indicador econômico global crucial. Como referência internacional para os preços do petróleo bruto, ele influencia custos de transporte e alimentos. Seus preços são voláteis, refletindo a complexidade dos fatores econômicos e geopolíticos. Eventos como a Guerra do Golfo e os ataques de 2001 causaram grandes flutuações, enquanto crises financeiras e conflitos regionais como a Primavera Árabe moldaram tendências duradouras. A Energy Information Administration (EIA) dos EUA fornece dados essenciais que orientam decisões econômicas e políticas globalmente, e a OPEP impacta diretamente os preços do Brent com sua produção.
 
