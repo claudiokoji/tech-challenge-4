@@ -76,7 +76,9 @@ if inspected_data is not None:
 
         # Histograma da distribuição dos preços
         st.subheader('Distribuição dos Preços')
-        st.hist_chart(data['Price'])
+        fig, ax = plt.subplots()
+        data['Price'].plot(kind='hist', ax=ax)
+        st.pyplot(fig)
 
         # Análise de médias móveis
         st.subheader('Médias Móveis')
@@ -101,30 +103,3 @@ if inspected_data is not None:
         st.error("Não foi possível carregar os dados corretamente após a inspeção.")
 else:
     st.error("Não foi possível inspecionar os dados.")
-
-# Teste de normalização dos dados simulados
-data = """20/05/1987;18,63;
-21/05/1987;18,45;
-22/05/1987;18,55;
-23/05/1987;
-24/05/1987;
-25/05/1987;18,6;
-26/05/1987;18,63;
-27/05/1987;18,6;
-28/05/1987;18,6;
-29/05/1987;18,58;"""
-
-# Substituir vírgulas por pontos e carregar os dados em um DataFrame
-data = data.replace(',', '.')
-df = pd.read_csv(StringIO(data), delimiter=';', header=None, names=['Date', 'Price'])
-
-# Converter a coluna 'Date' para o formato datetime
-df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
-
-# Converter a coluna 'Price' para o tipo numérico (float)
-df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
-
-# Preencher valores ausentes (NaN) na coluna 'Price'
-df['Price'].fillna(df['Price'].mean(), inplace=True)
-
-print(df)
