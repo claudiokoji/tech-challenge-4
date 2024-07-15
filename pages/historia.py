@@ -10,7 +10,8 @@ import plotly.graph_objects as go
 
 
 def plot_grafico_evolucao_preco_petroleo():
-    file_path = r'dados/base_brent_ipea.csv'
+    current_directory = os.getcwd()
+    file_path = os.path.join(current_directory, 'dados/base_brent_ipea.csv')
 
     try:
         df_oil = pd.read_csv(file_path, delimiter=';')
