@@ -79,10 +79,7 @@ if inspected_data is not None:
 
         # Mostrar os dados
         st.subheader('Dados Históricos')
-        for dados in data:
-            if dados['Price'] != None :
-                st.write(data)
-        # st.write(data.head())
+        st.write(data.head())
 
         # Gráfico de preços ao longo do tempo
         st.subheader('Preço do Petróleo Brent ao Longo do Tempo')
