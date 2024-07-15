@@ -8,16 +8,34 @@ import matplotlib.dates as mdates
 import seaborn as sns
 import plotly.graph_objects as go
 
+
 def plot_grafico_evolucao_preco_petroleo():
     file_path = r'dados/base_brent_ipea.csv'
-    
-    df_oil = pd.read_csv(file_path, delimiter=';')
-    df_oil.columns = ['Date', 'Brent_Price', 'Unnamed']
-    df = df_oil[['Date', 'Brent_Price']]
-    df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
-    df['Brent_Price'] = df['Brent_Price'].str.replace(',', '.').astype(float)
-    df.dropna(inplace=True)
-    df.rename(columns={'Date': 'ds', 'Brent_Price': 'y'}, inplace=True)
+
+    try:
+        df_oil = pd.read_csv(file_path, delimiter=';')
+    except Exception as e:
+        st.error(f"Erro ao carregar o arquivo CSV: {e}")
+        return
+
+    # Verifique as colunas carregadas para garantir que estão corretas
+    print(df_oil.columns)
+
+    # Renomeie as colunas se estiverem carregadas corretamente
+    if 'Date' in df_oil.columns and 'Brent_Price' in df_oil.columns:
+        df = df_oil[['Date', 'Brent_Price']].copy()
+        df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
+        df['Brent_Price'] = df['Brent_Price'].str.replace(',', '.').astype(float)
+        df.dropna(inplace=True)
+        df.rename(columns={'Date': 'ds', 'Brent_Price': 'y'}, inplace=True)
+    else:
+        st.error("Colunas necessárias não encontradas no arquivo CSV.")
+        return
+
+    # Restante do código de plotagem...
+
+
+
     
     pontos_de_interesse = [
     {'data': '1990-08-02', 'label': '1. Guerra do Golfo (1990-1991)'},
