@@ -23,14 +23,15 @@ with st.container():
 @st.cache_data
 def inspect_data(file_path):
     try:
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_path, sep=";")
         return data
     except Exception as e:
         st.error(f"Erro ao carregar o arquivo: {e}")
         return None
 
 # Nome do arquivo
-file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
+file_path = 'tech-challenge-4/dados/base_brent_ipea.csv'
+##file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
