@@ -9,12 +9,23 @@ def plot_grafico_evolucao_preco_petroleo():
 
     try:
         df_oil = pd.read_csv(file_path, delimiter=';')
+
+        # Visualizar as primeiras linhas para entender a estrutura dos dados
+        st.write(df_oil.head())
+
+        # Verificar as colunas existentes para garantir a correta renomeação
+        st.write(df_oil.columns)
+
+        # Renomear as colunas conforme necessário
         df_oil.columns = ['Date', 'Brent_Price', 'Unnamed']
+
         df = df_oil[['Date', 'Brent_Price']]
         df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
         df['Brent_Price'] = df['Brent_Price'].str.replace(',', '.').astype(float)
         df.dropna(inplace=True)
         df.rename(columns={'Date': 'ds', 'Brent_Price': 'y'}, inplace=True)
+
+        # Restante do código para plotagem do gráfico...
 
         pontos_de_interesse = [
             {'data': '1990-08-02', 'label': '1. Guerra do Golfo (1990-1991)'},
