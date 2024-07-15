@@ -5,6 +5,6 @@ matplotlib
 st_pages
 seaborn
 plotly
-fbprophet
-numpy
+prophet
+numpy==1.26.4
 
