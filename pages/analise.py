@@ -15,7 +15,7 @@ with st.container():
     st.markdown("""
         
     """)
-    
+
 # Função para carregar os dados sem parse_dates para inspeção
 @st.cache_data
 def inspect_data(file_path):
@@ -91,9 +91,7 @@ if inspected_data is not None:
         # Conclusão
         st.subheader('Conclusão')
         st.write("""
-        Esta análise exploratória mostra como o preço do petróleo Brent variou ao longo do tempo, sua distribuição,
-        médias móveis e volatilidade. Essas visualizações ajudam a entender os padrões históricos e podem ser úteis para
-        previsões futuras e tomadas de decisão informadas.
+        Esta análise exploratória apresenta as variações históricas do preço do petróleo Brent, incluindo sua distribuição, médias móveis e volatilidade. Essas visualizações auxiliam na compreensão dos padrões passados, sendo úteis para previsões futuras e tomadas de decisões informadas.
         """)
     else:
         st.error("Não foi possível carregar os dados corretamente após a inspeção.")
