@@ -80,7 +80,7 @@ if inspected_data is not None:
         # Mostrar os dados
         st.subheader('Dados Históricos')
         for dados in data:
-            if dados['Preço'] != None
+            if dados['Preço'] != None :
                 st.write(data)
         # st.write(data.head())
 
