@@ -5,7 +5,6 @@ from util.constantes import TITULO_ANALISE_EXPLORATORIA, TITULO_PRINCIPAL
 from util.layout import output_layout, format_number
 import os
 import numpy as np
-from io import StringIO
 
 st.set_page_config(
     page_title=f"{TITULO_ANALISE_EXPLORATORIA} | {TITULO_PRINCIPAL}",
@@ -29,14 +28,13 @@ def inspect_data(file_path):
         st.error(f"Erro ao carregar o arquivo: {e}")
         return None
 
-# Nome do arquivo
-## file_path = 'tech-challenge-4/dados/base_brent_ipea.csv'
-## file_path = '/mount/src/tech-challenge-4/dados/base_brent_ipea.csv'
-file_path = '/dados/base_brent_ipea.csv'
+# Verificação do caminho do arquivo
+current_directory = os.getcwd()
+file_path = os.path.join(current_directory, 'dados/base_brent_ipea.csv')
 
 # Imprimir o caminho absoluto do arquivo e o diretório atual para depuração
 st.write(f"Caminho absoluto do arquivo: {os.path.abspath(file_path)}")
-st.write(f"Diretório atual: {os.getcwd()}")
+st.write(f"Diretório atual: {current_directory}")
 
 # Inspecionar dados
 inspected_data = inspect_data(file_path)
@@ -52,21 +50,25 @@ if inspected_data is not None:
     # Função para carregar e normalizar os dados
     @st.cache_data
     def load_and_normalize_data(file_path):
-        data = pd.read_csv(file_path)
-        st.write("Colunas lidas do arquivo CSV:")
-        st.write(data.columns)  # Print column names for debugging
+        try:
+            data = pd.read_csv(file_path, sep=";")
+            st.write("Colunas lidas do arquivo CSV:")
+            st.write(data.columns)  # Print column names for debugging
 
-        # Ajuste o nome das colunas aqui conforme necessário
-        if 'Data' not in data.columns or 'Preço' not in data.columns:
-            st.error("As colunas esperadas 'Data' e 'Preço' não foram encontradas no arquivo CSV.")
+            # Ajuste o nome das colunas aqui conforme necessário
+            if 'Data' not in data.columns or 'Preço' not in data.columns:
+                st.error("As colunas esperadas 'Data' e 'Preço' não foram encontradas no arquivo CSV.")
+                return None
+
+            data.rename(columns={'Data': 'Date', 'Preço': 'Price'}, inplace=True)
+            data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
+            data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
+            data.set_index('Date', inplace=True)
+            data['Price'].fillna(data['Price'].mean(), inplace=True)  # Preenchendo valores ausentes com a média
+            return data
+        except Exception as e:
+            st.error(f"Erro ao processar o arquivo: {e}")
             return None
-
-        data.rename(columns={'Data': 'Date', 'Preço': 'Price'}, inplace=True)
-        data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
-        data['Price'] = data['Price'].replace(',', '.', regex=True).astype(float)
-        data.set_index('Date', inplace=True)
-        data['Price'].fillna(data['Price'].mean(), inplace=True)  # Preenchendo valores ausentes com a média
-        return data
 
     # Carregar e normalizar dados
     data = load_and_normalize_data(file_path)
