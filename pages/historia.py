@@ -117,4 +117,15 @@ with st.container():
     8. **Guerra Civil na Líbia (2011)**: O conflito na Líbia interrompeu a produção, elevando os preços.
     9. **Acordo Nuclear com o Irã (2015)**: O acordo levou à expectativa de aumento da oferta, pressionando os preços para baixo.
     10. **Queda dos Preços do Petróleo (2014-2016)**: Aumento da produção de xisto nos EUA e excesso de oferta.
-    11. **Ataque às Instalações da Aramco (2019)**: Ataques com drones na Arábia Saudita interromperam a produ
+    11. **Ataque às Instalações da Aramco (2019)**: Ataques com drones na Arábia Saudita interromperam a produção.
+    12. **Pandemia de COVID-19 (2020)**: A pandemia reduziu drasticamente a demanda por petróleo.
+    13. **Acordo de Corte de Produção da OPEP+ (2020)**: Acordo para cortar a produção e estabilizar os preços.
+    14. **Invasão da Ucrânia pela Rússia (2022)**: A invasão criou incertezas sobre o fornecimento de petróleo e gás da Rússia.
+    15. **Acordos de Redução de Emissões e Transição Energética (2021-presente)**: Políticas para reduzir as emissões de carbono impactam a demanda de longo prazo.
+    """
+    )
+
+with st.container():
+    st.subheader(":blue:[Gráfico de evolução do preço]")
+
+    plot_grafico_evolucao_preco_petroleo()
