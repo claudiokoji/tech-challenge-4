@@ -70,6 +70,10 @@ def prever_brent():
     ax2.legend()
     st.pyplot(fig2)
 
+    # Imprimir o valor e data da previsão
+    st.write(f"Data da previsão: {forecast['ds'].iloc[-1]}")
+    st.write(f"Valor previsto: {forecast['yhat'].iloc[-1]}")
+
 with st.container():
     st.header(f":orange[{TITULO_MODELO}]")
     
